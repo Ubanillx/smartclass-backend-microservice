@@ -1,6 +1,6 @@
 package com.ubanillx.smartclassbackendmodel.model.vo;
 
-import com.ubanillx.smartclass.model.entity.UserWordBook;
+import com.ubanillx.smartclassbackendmodel.model.entity.UserWordBook;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
