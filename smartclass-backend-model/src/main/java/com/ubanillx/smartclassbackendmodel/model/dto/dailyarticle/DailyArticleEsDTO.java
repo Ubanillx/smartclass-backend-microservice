@@ -1,6 +1,6 @@
 package com.ubanillx.smartclassbackendmodel.model.dto.dailyarticle;
 
-import com.ubanillx.smartclass.model.entity.DailyArticle;
+import com.ubanillx.smartclassbackendmodel.model.entity.DailyArticle;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
