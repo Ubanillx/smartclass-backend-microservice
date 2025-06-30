@@ -1,6 +1,6 @@
 package com.ubanillx.smartclassbackendmodel.model.dto.dailyword;
 
-import com.ubanillx.smartclass.model.entity.DailyWord;
+import com.ubanillx.smartclassbackendmodel.model.entity.DailyWord;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
