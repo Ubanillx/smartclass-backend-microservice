@@ -1,6 +1,5 @@
-package com.ubanillx.smartclassbackenduserservice;
+package com.ubanillx.smartclassbackendfile;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -12,9 +11,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 // 启动Spring Boot应用程序的注解，标识这是一个Spring Boot应用
 @SpringBootApplication
-
-// 扫描MyBatis的Mapper接口，指定Mapper接口所在的包路径
-@MapperScan("com.ubanillx.smartclassbackenduserservice.mapper")
 
 // 扫描Servlet组件，将自定义的Servlet、Filter、Listener组件注册到Spring容器中
 @ServletComponentScan
@@ -31,10 +27,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"com.ubanillx.smartclassbackendserviceclient.service"})
 
-public class SmartclassBackendUserServiceApplication {
+public class SmartclassBackendFileApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SmartclassBackendUserServiceApplication.class, args);
+        SpringApplication.run(SmartclassBackendFileApplication.class, args);
     }
 
 }
