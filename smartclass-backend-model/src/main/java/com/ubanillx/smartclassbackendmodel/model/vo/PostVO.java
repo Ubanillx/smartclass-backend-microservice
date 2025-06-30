@@ -1,7 +1,7 @@
 package com.ubanillx.smartclassbackendmodel.model.vo;
 
 import cn.hutool.json.JSONUtil;
-import com.ubanillx.smartclass.model.entity.Post;
+import com.ubanillx.smartclassbackendmodel.model.entity.Post;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
