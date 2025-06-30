@@ -32,6 +32,11 @@
             <artifactId>smartclass-backend-model</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.ubanillx</groupId>
+            <artifactId>smartclass-backend-service-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Spring Boot 基础依赖 -->
         <dependency>
@@ -58,6 +63,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- 微信开放平台依赖 -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-open</artifactId>
+            <version>4.5.0</version>
         </dependency>
     </dependencies>
 

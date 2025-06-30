@@ -2,22 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ubanillx</groupId>
-    <artifactId>smartclass-backend-service-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>smartclass-backend-service-client</name>
-    <description>smartclass-backend-service-client</description>
     <parent>
         <groupId>com.ubanillx</groupId>
         <artifactId>smartclass-backend-microservice</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <groupId>com.ubanillx</groupId>
+    <artifactId>smartclass-backend-file</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>smartclass-backend-file</name>
+    <description>smartclass-backend-file</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.7.6</spring-boot.version>
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
     <dependencies>
         <dependency>
@@ -31,25 +30,22 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>com.ubanillx</groupId>
+            <artifactId>smartclass-backend-service-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        
+        <!-- 腾讯云COS SDK -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!-- 微信开放平台依赖 -->
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-open</artifactId>
-            <version>4.5.0</version>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>5.6.89</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -58,13 +54,6 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -92,8 +81,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.ubanillx.smartclassbackendserviceclient.SmartclassBackendServiceClientApplication
-                    </mainClass>
+                    <mainClass>com.ubanillx.smartclassbackendfile.SmartclassBackendFileApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
