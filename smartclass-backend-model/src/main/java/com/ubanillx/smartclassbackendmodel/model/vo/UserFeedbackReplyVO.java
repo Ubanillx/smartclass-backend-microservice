@@ -1,6 +1,6 @@
 package com.ubanillx.smartclassbackendmodel.model.vo;
 
-import com.ubanillx.smartclass.model.entity.UserFeedbackReply;
+import com.ubanillx.smartclassbackendmodel.model.entity.UserFeedbackReply;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
