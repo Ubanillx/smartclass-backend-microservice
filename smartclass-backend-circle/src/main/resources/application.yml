@@ -48,7 +48,6 @@ server:
   address: 0.0.0.0
   port: 10003
   servlet:
-    context-path: /api/circle
     # cookie 30 天过期
     session:
       cookie:

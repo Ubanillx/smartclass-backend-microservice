@@ -46,7 +46,6 @@ server:
   address: 0.0.0.0
   port: 10009
   servlet:
-    context-path: /api/course
     # cookie 30 天过期
     session:
       cookie:

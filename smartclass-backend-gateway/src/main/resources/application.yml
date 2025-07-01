@@ -142,54 +142,41 @@ knife4j:
         smartclass-backend-user:
           order: 1
           group-name: 用户服务
-          context-path: /api/user
         smartclass-backend-announcement:
           order: 2
           group-name: 公告服务
-          context-path: /api/announcement
         smartclass-backend-circle:
           order: 3
           group-name: 圈子服务
-          context-path: /api/circle
         smartclass-backend-dailyarticle:
           order: 4
           group-name: 每日文章服务
-          context-path: /api/dailyarticle
         smartclass-backend-dailyword:
           order: 5
           group-name: 每日单词服务
-          context-path: /api/dailyword
         smartclass-backend-intelligence:
           order: 6
           group-name: 智能服务
-          context-path: /api/intelligence
         smartclass-backend-file:
           order: 7
           group-name: 文件服务
-          context-path: /api/file
         smartclass-backend-feedback:
           order: 8
           group-name: 反馈服务
-          context-path: /api/feedback
         smartclass-backend-course:
           order: 9
           group-name: 课程服务
-          context-path: /api/course
         smartclass-backend-stats:
           order: 10
           group-name: 统计服务
-          context-path: /api/stats
         smartclass-backend-learn-schedule:
           order: 11
           group-name: 学习计划服务
-          context-path: /api/learn-schedule
         smartclass-backend-search:
           order: 12
           group-name: 搜索服务
-          context-path: /api/search
         smartclass-backend-pay:
           order: 13
           group-name: 支付服务
-          context-path: /api/pay
 
 

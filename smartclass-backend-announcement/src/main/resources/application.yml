@@ -43,7 +43,6 @@ server:
   address: 0.0.0.0
   port: 10002
   servlet:
-    context-path: /api/announcement
     # cookie 30 天过期
     session:
       cookie:

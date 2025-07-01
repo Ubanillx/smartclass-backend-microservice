@@ -48,7 +48,6 @@ server:
   address: 0.0.0.0
   port: 10004
   servlet:
-    context-path: /api/dailyarticle
     # cookie 30 天过期
     session:
       cookie:

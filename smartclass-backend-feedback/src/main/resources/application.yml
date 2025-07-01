@@ -50,7 +50,6 @@ server:
   address: 0.0.0.0
   port: 10006
   servlet:
-    context-path: /api/feedback
     # cookie 30 天过期
     session:
       cookie:

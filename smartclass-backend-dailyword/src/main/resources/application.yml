@@ -50,7 +50,6 @@ server:
   address: 0.0.0.0
   port: 10005
   servlet:
-    context-path: /api/dailyword
     # cookie 30 天过期
     session:
       cookie:
