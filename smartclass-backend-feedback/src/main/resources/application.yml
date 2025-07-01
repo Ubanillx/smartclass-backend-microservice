@@ -1,7 +1,7 @@
 # 公共配置文件
 spring:
   application:
-    name: smartclass-ubanillx
+    name: smartclass-backend-feedback
   cloud:
     nacos:
       discovery:
@@ -50,11 +50,12 @@ server:
   address: 0.0.0.0
   port: 10006
   servlet:
-    context-path: /api
+    context-path: /api/feedback
     # cookie 30 天过期
     session:
       cookie:
         max-age: 2592000
+        path: "/"
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -114,25 +115,4 @@ knife4j:
       default:
         api-rule: package
         api-rule-resources:
-          - com.ubanillx.smartclass.controller
-# Dify API配置
-dify:
-  chat-messages-path: /chat-messages
-  user-prefix: smartclass_user_
-  enable-streaming-verbose-log: false
-
-# Netty WebSocket服务器配置
-netty:
-  websocket:
-    port: 12346
-    heartbeat-timeout: 60
-    auth-timeout: 10
-    max-connections: 10000
-
-# 日志配置
-logging:
-  level:
-    com.ubanillx.smartclass.service.impl.DifyServiceImpl: info
-    com.ubanillx.smartclass.controller.AiAvatarChatController: info
-    com.ubanillx.smartclass.netty: debug
-    com.ubanillx.smartclass.service.impl.ChatMessageServiceImpl: debug
+          - com.ubanillx.smartclassbackendfeedback.controller

@@ -1,7 +1,7 @@
 # 公共配置文件
 spring:
   application:
-    name: smartclass-ubanillx-userservice
+    name: smartclass-backend-user
   # 默认 dev 环境
   profiles:
     active: dev
@@ -10,6 +10,7 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        ip: 127.0.0.1
   # 支持 swagger3
   mvc:
     pathmatch:
@@ -47,6 +48,7 @@ server:
     session:
       cookie:
         max-age: 2592000
+        path: "/"
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -95,14 +97,4 @@ cos:
       allowed-video-types: mp4,avi,mov,flv,wmv
       allowed-document-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt
       allowed-material-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt,zip,rar,7z
-# 接口文档配置
-knife4j:
-  enable: true
-  openapi:
-    title: "接口文档"
-    version: 1.0
-    group:
-      default:
-        api-rule: package
-        api-rule-resources:
-          - com.ubanillx.smartclass.backend.user.controller
+# 接口文档配置已迁移到 Knife4jConfig.java 配置类

@@ -1,7 +1,11 @@
 # 公共配置文件
 spring:
   application:
-    name: smartclass-ubanillx
+    name: smartclass-backend-course
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
   # 默认 dev 环境
   profiles:
     active: dev
@@ -11,19 +15,16 @@ spring:
       matching-strategy: ant_path_matcher
   # session 配置
   session:
-    # todo 取消注释开启分布式 session（须先配置 Redis）
     store-type: redis
     # 30 天过期
     timeout: 2592000
   # 数据库配置
-  # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://110.42.45.244:3307/smart_class
     username: smartclass
     password: possible1.
   # Redis 配置
-  # todo 需替换配置，然后取消注释
   redis:
     database: 0
     host: 110.42.45.236
@@ -45,11 +46,12 @@ server:
   address: 0.0.0.0
   port: 10009
   servlet:
-    context-path: /api
+    context-path: /api/course
     # cookie 30 天过期
     session:
       cookie:
         max-age: 2592000
+        path: "/"
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -59,27 +61,6 @@ mybatis-plus:
       logic-delete-field: isDelete # 全局逻辑删除的实体字段名
       logic-delete-value: 1 # 逻辑已删除值（默认为 1）
       logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
-# 微信相关
-wx:
-  # 微信公众平台
-  # todo 需替换配置
-  mp:
-    token: xxx
-    aesKey: xxx
-    appId: wxd3ab8b4540fd93cf
-    secret: 2c6a9b396e100b1baf7406658401ece0
-    config-storage:
-      http-client-type: HttpClient
-      key-prefix: wx
-      redis:
-        host: 127.0.0.1
-        port: 6379
-      type: Memory
-  # 微信开放平台
-  # todo 需替换配置
-  open:
-    appId: xxx
-    appSecret: xxx
 # 对象存储
 # todo 需替换配置
 cos:
@@ -99,35 +80,6 @@ cos:
       allowed-video-types: mp4,avi,mov,flv,wmv
       allowed-document-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt
       allowed-material-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt,zip,rar,7z
-# 接口文档配置
-knife4j:
-  enable: true
-  openapi:
-    title: "接口文档"
-    version: 1.0
-    group:
-      default:
-        api-rule: package
-        api-rule-resources:
-          - com.ubanillx.smartclass.controller
-# Dify API配置
-dify:
-  chat-messages-path: /chat-messages
-  user-prefix: smartclass_user_
-  enable-streaming-verbose-log: false
+# 接口文档配置已迁移到 Knife4jConfig.java 配置类
 
-# Netty WebSocket服务器配置
-netty:
-  websocket:
-    port: 12346
-    heartbeat-timeout: 60
-    auth-timeout: 10
-    max-connections: 10000
 
-# 日志配置
-logging:
-  level:
-    com.ubanillx.smartclass.service.impl.DifyServiceImpl: info
-    com.ubanillx.smartclass.controller.AiAvatarChatController: info
-    com.ubanillx.smartclass.netty: debug
-    com.ubanillx.smartclass.service.impl.ChatMessageServiceImpl: debug

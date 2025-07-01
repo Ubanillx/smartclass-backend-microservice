@@ -1,7 +1,7 @@
 # 公共配置文件
 spring:
   application:
-    name: smartclass-ubanillx-backend-announcement
+    name: smartclass-backend-announcement
   cloud:
     nacos:
       discovery:
@@ -48,6 +48,7 @@ server:
     session:
       cookie:
         max-age: 2592000
+        path: "/"
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -67,12 +68,5 @@ knife4j:
       default:
         api-rule: package
         api-rule-resources:
-          - com.ubanillx.smartclass.controller
+          - com.ubanillx.smartclassbackendannouncement.controller
 
-# 日志配置
-logging:
-  level:
-    com.ubanillx.smartclass.service.impl.DifyServiceImpl: info
-    com.ubanillx.smartclass.controller.AiAvatarChatController: info
-    com.ubanillx.smartclass.netty: debug
-    com.ubanillx.smartclass.service.impl.ChatMessageServiceImpl: debug

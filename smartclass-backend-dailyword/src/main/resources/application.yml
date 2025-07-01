@@ -1,7 +1,7 @@
 # 公共配置文件
 spring:
   application:
-    name: smartclass-ubanillx
+    name: smartclass-backend-dailyword
   cloud:
     nacos:
       discovery:
@@ -50,11 +50,12 @@ server:
   address: 0.0.0.0
   port: 10005
   servlet:
-    context-path: /api
+    context-path: /api/dailyword
     # cookie 30 天过期
     session:
       cookie:
         max-age: 2592000
+        path: "/"
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -104,35 +105,5 @@ cos:
       allowed-video-types: mp4,avi,mov,flv,wmv
       allowed-document-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt
       allowed-material-types: pdf,doc,docx,ppt,pptx,xls,xlsx,txt,zip,rar,7z
-# 接口文档配置
-knife4j:
-  enable: true
-  openapi:
-    title: "接口文档"
-    version: 1.0
-    group:
-      default:
-        api-rule: package
-        api-rule-resources:
-          - com.ubanillx.smartclass.controller
-# Dify API配置
-dify:
-  chat-messages-path: /chat-messages
-  user-prefix: smartclass_user_
-  enable-streaming-verbose-log: false
+# 接口文档配置已迁移到 Knife4jConfig.java 配置类
 
-# Netty WebSocket服务器配置
-netty:
-  websocket:
-    port: 12346
-    heartbeat-timeout: 60
-    auth-timeout: 10
-    max-connections: 10000
-
-# 日志配置
-logging:
-  level:
-    com.ubanillx.smartclass.service.impl.DifyServiceImpl: info
-    com.ubanillx.smartclass.controller.AiAvatarChatController: info
-    com.ubanillx.smartclass.netty: debug
-    com.ubanillx.smartclass.service.impl.ChatMessageServiceImpl: debug

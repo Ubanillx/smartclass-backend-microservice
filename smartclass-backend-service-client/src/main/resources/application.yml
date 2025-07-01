@@ -1,4 +1,6 @@
-srping:
+spring:
+  application:
+    name: smartclass-backend-service-client
   cloud:
     nacos:
       discovery:
