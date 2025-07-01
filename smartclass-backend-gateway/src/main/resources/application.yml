@@ -1,6 +1,195 @@
-srping:
+server:
+  port: 8101
+
+spring:
   cloud:
+    gateway:
+      # 全局跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+      routes:
+        - id: smartclass-backend-user
+          uri: lb://smartclass-backend-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-announcement
+          uri: lb://smartclass-backend-announcement
+          predicates:
+            - Path=/api/announcement/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-circle
+          uri: lb://smartclass-backend-circle
+          predicates:
+            - Path=/api/circle/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-dailyarticle
+          uri: lb://smartclass-backend-dailyarticle
+          predicates:     
+            - Path=/api/dailyarticle/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-dailyword
+          uri: lb://smartclass-backend-dailyword
+          predicates:
+            - Path=/api/dailyword/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-intelligence
+          uri: lb://smartclass-backend-intelligence
+          predicates:
+            - Path=/api/intelligence/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-file
+          uri: lb://smartclass-backend-file
+          predicates:
+            - Path=/api/file/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-feedback
+          uri: lb://smartclass-backend-feedback
+          predicates:
+            - Path=/api/feedback/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-course
+          uri: lb://smartclass-backend-course
+          predicates:
+            - Path=/api/course/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-stats
+          uri: lb://smartclass-backend-stats
+          predicates:
+            - Path=/api/stats/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-learn-schedule
+          uri: lb://smartclass-backend-learn-schedule
+          predicates:
+            - Path=/api/learn-schedule/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-search
+          uri: lb://smartclass-backend-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - StripPrefix=2
+
+        - id: smartclass-backend-pay
+          uri: lb://smartclass-backend-pay
+          predicates:
+            - Path=/api/pay/**
+          filters:
+            - StripPrefix=2
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  application:
+    name: smartclass-backend-gateway
+
+# Knife4j 文档聚合配置
+knife4j:
+  gateway:
+    # 是否开启网关聚合模式
+    enabled: true
+    # 排序规则(tag/operation排序)
+    tags-sorter: order
+    operations-sorter: order
+    # 指定服务发现的模式聚合微服务文档
+    strategy: discover
+    # 服务发现模式的配置
+    discover:
+      # 开启服务发现
+      enabled: true
+      # 指定版本号(openapi3)
+      version: openapi3
+      # 需要排除的微服务(排除网关服务本身)
+      excluded-services:
+        - smartclass-backend-gateway
+      # OpenAPI3配置
+      oas3:
+        url: /v3/api-docs?group=default
+      # 各个聚合服务的个性化配置
+      service-config:
+        smartclass-backend-user:
+          order: 1
+          group-name: 用户服务
+          context-path: /api/user
+        smartclass-backend-announcement:
+          order: 2
+          group-name: 公告服务
+          context-path: /api/announcement
+        smartclass-backend-circle:
+          order: 3
+          group-name: 圈子服务
+          context-path: /api/circle
+        smartclass-backend-dailyarticle:
+          order: 4
+          group-name: 每日文章服务
+          context-path: /api/dailyarticle
+        smartclass-backend-dailyword:
+          order: 5
+          group-name: 每日单词服务
+          context-path: /api/dailyword
+        smartclass-backend-intelligence:
+          order: 6
+          group-name: 智能服务
+          context-path: /api/intelligence
+        smartclass-backend-file:
+          order: 7
+          group-name: 文件服务
+          context-path: /api/file
+        smartclass-backend-feedback:
+          order: 8
+          group-name: 反馈服务
+          context-path: /api/feedback
+        smartclass-backend-course:
+          order: 9
+          group-name: 课程服务
+          context-path: /api/course
+        smartclass-backend-stats:
+          order: 10
+          group-name: 统计服务
+          context-path: /api/stats
+        smartclass-backend-learn-schedule:
+          order: 11
+          group-name: 学习计划服务
+          context-path: /api/learn-schedule
+        smartclass-backend-search:
+          order: 12
+          group-name: 搜索服务
+          context-path: /api/search
+        smartclass-backend-pay:
+          order: 13
+          group-name: 支付服务
+          context-path: /api/pay
+
 
