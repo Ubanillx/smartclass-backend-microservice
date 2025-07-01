@@ -136,9 +136,9 @@ public class UserFeedbackReplyController {
      * @param request HTTP请求，用于获取当前登录用户信息
      * @return 反馈回复VO分页结果，包含回复列表和分页信息
      */
-    @GetMapping("/page")
+    @PostMapping("/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<Page<UserFeedbackReplyVO>> listReplyByPage(UserFeedbackReplyQueryRequest userFeedbackReplyQueryRequest,
+    public BaseResponse<Page<UserFeedbackReplyVO>> listReplyByPage(@RequestBody UserFeedbackReplyQueryRequest userFeedbackReplyQueryRequest,
                                                                    HttpServletRequest request) {
         if (userFeedbackReplyQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

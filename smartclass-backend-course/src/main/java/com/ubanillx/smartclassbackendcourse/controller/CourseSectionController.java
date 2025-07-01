@@ -232,7 +232,7 @@ public class CourseSectionController {
      * @param courseId
      * @return
      */
-    @GetMapping("/list/course")
+    @PostMapping("/list/course")
     public BaseResponse<List<CourseSection>> listSectionsByCourseId(@RequestParam("courseId") Long courseId) {
         if (courseId == null || courseId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -248,7 +248,7 @@ public class CourseSectionController {
      * @param chapterId
      * @return
      */
-    @GetMapping("/list/chapter")
+    @PostMapping("/list/chapter")
     public BaseResponse<List<CourseSection>> listSectionsByChapterId(@RequestParam("chapterId") Long chapterId) {
         if (chapterId == null || chapterId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -267,7 +267,7 @@ public class CourseSectionController {
      * @param pageSize
      * @return
      */
-    @GetMapping("/list/page")
+    @PostMapping("/list/page")
     public BaseResponse<Page<CourseSection>> listSectionsByPage(
             @RequestParam(value = "courseId", required = false) Long courseId,
             @RequestParam(value = "chapterId", required = false) Long chapterId,

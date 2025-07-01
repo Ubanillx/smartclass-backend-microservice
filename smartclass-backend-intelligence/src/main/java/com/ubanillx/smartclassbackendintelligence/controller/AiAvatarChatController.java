@@ -294,7 +294,7 @@ public class AiAvatarChatController {
      * @param request HTTP请求
      * @return 用户所有聊天消息
      */
-    @GetMapping("/messages/list")
+    @PostMapping("/messages/list")
     public BaseResponse<List<ChatMessageVO>> getUserChatMessages(@RequestParam(required = false) Long aiAvatarId, HttpServletRequest request) {
         User loginUser = userService.getLoginUser(request);
         

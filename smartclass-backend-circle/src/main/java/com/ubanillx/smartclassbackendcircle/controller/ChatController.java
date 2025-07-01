@@ -100,7 +100,7 @@ public class ChatController {
      * @param request HTTP请求
      * @return 聊天会话列表
      */
-    @GetMapping("/sessions/list")
+    @PostMapping("/sessions/list")
     public BaseResponse<List<PrivateChatSessionVO>> listUserSessions(@RequestParam(required = false) Long userId,
                                                                       HttpServletRequest request) {
         // 如果没有指定用户ID，则使用当前登录用户的ID

@@ -93,7 +93,7 @@ public class CourseFavouriteController {
      * @param request HTTP请求
      * @return 课程ID列表
      */
-    @GetMapping("/my/list")
+    @PostMapping("/my/list")
     public BaseResponse<List<Long>> getMyFavourList(HttpServletRequest request) {
         User loginUser = userService.getLoginUser(request);
         List<Long> favouriteCourseIds = courseFavouriteService.getUserFavouriteCourseIds(loginUser.getId());

@@ -139,9 +139,9 @@ public class DailyWordController {
      * @param dailyWordQueryRequest 单词查询请求，包含分页参数和查询条件
      * @return 单词分页列表
      */
-    @GetMapping("/admin/page")
+    @PostMapping("/admin/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<Page<DailyWord>> listDailyWordByPage(DailyWordQueryRequest dailyWordQueryRequest) {
+    public BaseResponse<Page<DailyWord>> listDailyWordByPage(@RequestBody DailyWordQueryRequest dailyWordQueryRequest) {
         if (dailyWordQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -160,8 +160,8 @@ public class DailyWordController {
      * @param dailyWordQueryRequest 单词查询请求，包含分页参数和查询条件
      * @return 单词视图对象分页列表
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<DailyWordVO>> listDailyWordVOByPage(DailyWordQueryRequest dailyWordQueryRequest) {
+    @PostMapping("/page")
+    public BaseResponse<Page<DailyWordVO>> listDailyWordVOByPage(@RequestBody DailyWordQueryRequest dailyWordQueryRequest) {
         if (dailyWordQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

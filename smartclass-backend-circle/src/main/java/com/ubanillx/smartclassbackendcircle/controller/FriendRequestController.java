@@ -174,7 +174,7 @@ public class FriendRequestController {
      * @param request HTTP请求，用于获取当前登录用户信息和权限验证
      * @return 好友申请分页结果
      */
-    @GetMapping("/page")
+    @PostMapping("/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public BaseResponse<Page<FriendRequest>> listFriendRequestByPage(@RequestBody FriendRequestQueryRequest friendRequestQueryRequest,
                                                     HttpServletRequest request) {

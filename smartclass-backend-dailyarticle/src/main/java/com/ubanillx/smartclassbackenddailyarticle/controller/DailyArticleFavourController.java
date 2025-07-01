@@ -81,7 +81,7 @@ public class DailyArticleFavourController {
      * @param request HTTP请求对象，用于获取当前登录用户信息
      * @return 分页后的文章视图对象列表
      */
-    @GetMapping("/me/page")
+    @PostMapping("/me/page")
     public BaseResponse<Page<DailyArticleVO>> listMyFavourArticleByPage(@RequestBody DailyArticleQueryRequest dailyArticleQueryRequest,
                                                                         HttpServletRequest request) {
         if (dailyArticleQueryRequest == null) {

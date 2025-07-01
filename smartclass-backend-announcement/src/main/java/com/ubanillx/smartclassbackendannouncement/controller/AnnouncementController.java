@@ -154,9 +154,9 @@ public class AnnouncementController {
      * @param announcementQueryRequest 公告查询请求体，包含分页参数和查询条件
      * @return 分页公告信息
      */
-    @GetMapping("/admin/page")
+    @PostMapping("/admin/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<Page<Announcement>> listAnnouncementByPage(AnnouncementQueryRequest announcementQueryRequest) {
+    public BaseResponse<Page<Announcement>> listAnnouncementByPage(@RequestBody AnnouncementQueryRequest announcementQueryRequest) {
         if (announcementQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -176,8 +176,8 @@ public class AnnouncementController {
      * @param request HTTP请求
      * @return 分页公告信息（VO对象）
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<AnnouncementVO>> listAnnouncementVOByPage(AnnouncementQueryRequest announcementQueryRequest,
+    @PostMapping("/page")
+    public BaseResponse<Page<AnnouncementVO>> listAnnouncementVOByPage(@RequestBody AnnouncementQueryRequest announcementQueryRequest,
                                                                   HttpServletRequest request) {
         if (announcementQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

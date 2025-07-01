@@ -207,8 +207,8 @@ public class AiAvatarController {
      * @param aiAvatarQueryRequest ai查询请求
      * @return baseResponse
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<AiAvatarVO>> listAiAvatarByPage(AiAvatarQueryRequest aiAvatarQueryRequest) {
+    @PostMapping("/page")
+    public BaseResponse<Page<AiAvatarVO>> listAiAvatarByPage(@RequestBody AiAvatarQueryRequest aiAvatarQueryRequest) {
         if (aiAvatarQueryRequest == null) {
             return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
@@ -245,8 +245,8 @@ public class AiAvatarController {
      * @param aiAvatarQueryRequest ai查询请求
      * @return baseResponse
      */
-    @GetMapping("/admin/page")
-    public BaseResponse<Page<AiAvatar>> listAiAvatarByPageAdmin(AiAvatarQueryRequest aiAvatarQueryRequest) {
+    @PostMapping("/admin/page")
+    public BaseResponse<Page<AiAvatar>> listAiAvatarByPageAdmin(@RequestBody AiAvatarQueryRequest aiAvatarQueryRequest) {
         if (aiAvatarQueryRequest == null) {
             return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }

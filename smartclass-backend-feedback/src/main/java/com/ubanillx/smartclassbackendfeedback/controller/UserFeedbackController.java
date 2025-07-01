@@ -163,8 +163,8 @@ public class UserFeedbackController {
      * @return 分页用户反馈列表
      * @throws BusinessException 参数错误或分页参数超出限制时抛出异常
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<UserFeedback>> listUserFeedbackByPage(UserFeedbackQueryRequest userFeedbackQueryRequest,
+    @PostMapping("/page")
+    public BaseResponse<Page<UserFeedback>> listUserFeedbackByPage(@RequestBody UserFeedbackQueryRequest userFeedbackQueryRequest,
                                                                    HttpServletRequest request) {
         if (userFeedbackQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

@@ -126,7 +126,7 @@ public class CourseChapterController {
      * @param courseId
      * @return
      */
-    @GetMapping("/list")
+    @PostMapping("/list")
     public BaseResponse<List<CourseChapter>> listChapters(@RequestParam("courseId") Long courseId) {
         if (courseId == null || courseId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -145,7 +145,7 @@ public class CourseChapterController {
      * @param pageSize
      * @return
      */
-    @GetMapping("/list/page")
+    @PostMapping("/list/page")
     public BaseResponse<Page<CourseChapter>> listChaptersByPage(
             @RequestParam("courseId") Long courseId,
             @RequestParam(defaultValue = "1") int current,

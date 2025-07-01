@@ -213,8 +213,8 @@ public class CourseMaterialController {
      * @param courseId 课程ID
      * @return 资料列表
      */
-    @GetMapping("/list")
-    public BaseResponse<List<CourseMaterial>> listMaterialsByCourse(Long courseId) {
+    @PostMapping("/list")
+    public BaseResponse<List<CourseMaterial>> listMaterialsByCourse(@RequestParam Long courseId) {
         if (courseId == null || courseId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -230,10 +230,10 @@ public class CourseMaterialController {
      * @param pageSize 页面大小
      * @return 分页结果
      */
-    @GetMapping("/list/page")
-    public BaseResponse<Page<CourseMaterial>> listMaterialsByPage(Long courseId, 
-                                                                long current, 
-                                                                long pageSize) {
+    @PostMapping("/list/page")
+    public BaseResponse<Page<CourseMaterial>> listMaterialsByPage(@RequestParam Long courseId, 
+                                                                @RequestParam long current, 
+                                                                @RequestParam long pageSize) {
         if (courseId == null || courseId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

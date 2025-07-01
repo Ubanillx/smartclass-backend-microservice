@@ -140,9 +140,9 @@ public class DailyArticleController {
      * @param dailyArticleQueryRequest 查询请求参数，包含页码、每页大小、排序字段等
      * @return 每日文章分页数据
      */
-    @GetMapping("/admin/page")
+    @PostMapping("/admin/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<Page<DailyArticle>> listDailyArticleByPage(DailyArticleQueryRequest dailyArticleQueryRequest) {
+    public BaseResponse<Page<DailyArticle>> listDailyArticleByPage(@RequestBody DailyArticleQueryRequest dailyArticleQueryRequest) {
         if (dailyArticleQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -161,8 +161,8 @@ public class DailyArticleController {
      * @param dailyArticleQueryRequest 查询请求参数，包含页码、每页大小、排序字段、搜索关键词等
      * @return 每日文章VO对象的分页数据，包含更多展示信息
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<DailyArticleVO>> listDailyArticleVOByPage(DailyArticleQueryRequest dailyArticleQueryRequest) {
+    @PostMapping("/page")
+    public BaseResponse<Page<DailyArticleVO>> listDailyArticleVOByPage(@RequestBody DailyArticleQueryRequest dailyArticleQueryRequest) {
         if (dailyArticleQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

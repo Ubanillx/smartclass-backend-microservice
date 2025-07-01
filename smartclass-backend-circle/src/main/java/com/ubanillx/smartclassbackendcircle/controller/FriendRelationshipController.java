@@ -208,9 +208,9 @@ public class FriendRelationshipController {
      * @param friendRelationshipQueryRequest 查询参数，包含分页信息和筛选条件
      * @return 分页好友关系结果
      */
-    @GetMapping("/admin/page")
+    @PostMapping("/admin/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<Page<FriendRelationship>> listFriendRelationshipByPage(FriendRelationshipQueryRequest friendRelationshipQueryRequest) {
+    public BaseResponse<Page<FriendRelationship>> listFriendRelationshipByPage(@RequestBody FriendRelationshipQueryRequest friendRelationshipQueryRequest) {
         long current = friendRelationshipQueryRequest.getCurrent();
         long size = friendRelationshipQueryRequest.getPageSize();
 
@@ -232,8 +232,8 @@ public class FriendRelationshipController {
      * @param request HTTP请求，用于获取当前登录用户信息
      * @return 分页好友关系VO结果，包含详细的好友信息
      */
-    @GetMapping("/page")
-    public BaseResponse<Page<FriendRelationshipVO>> listFriendRelationshipVOByPage(FriendRelationshipQueryRequest friendRelationshipQueryRequest,
+    @PostMapping("/page")
+    public BaseResponse<Page<FriendRelationshipVO>> listFriendRelationshipVOByPage(@RequestBody FriendRelationshipQueryRequest friendRelationshipQueryRequest,
                                                            HttpServletRequest request) {
         if (friendRelationshipQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

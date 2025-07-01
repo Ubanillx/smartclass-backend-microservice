@@ -147,9 +147,9 @@ public class CourseController {
      * @param request
      * @return
      */
-    @GetMapping("/list")
+    @PostMapping("/list")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public BaseResponse<List<Course>> listCourse(CourseQueryRequest courseQueryRequest, HttpServletRequest request) {
+    public BaseResponse<List<Course>> listCourse(@RequestBody CourseQueryRequest courseQueryRequest, HttpServletRequest request) {
         Course courseQuery = new Course();
         if (courseQueryRequest != null) {
             BeanUtils.copyProperties(courseQueryRequest, courseQuery);
@@ -165,8 +165,8 @@ public class CourseController {
      * @param request
      * @return
      */
-    @GetMapping("/list/page/vo")
-    public BaseResponse<Page<CourseVO>> listCourseVOByPage(CourseQueryRequest courseQueryRequest,
+    @PostMapping("/list/page/vo")
+    public BaseResponse<Page<CourseVO>> listCourseVOByPage(@RequestBody CourseQueryRequest courseQueryRequest,
                                                            HttpServletRequest request) {
         long current = courseQueryRequest.getCurrent();
         long size = courseQueryRequest.getPageSize();
@@ -189,8 +189,8 @@ public class CourseController {
      * @param request
      * @return
      */
-    @GetMapping("/my/list/page/vo")
-    public BaseResponse<Page<CourseVO>> listMyCourseVOByPage(CourseQueryRequest courseQueryRequest,
+    @PostMapping("/my/list/page/vo")
+    public BaseResponse<Page<CourseVO>> listMyCourseVOByPage(@RequestBody CourseQueryRequest courseQueryRequest,
                                                              HttpServletRequest request) {
         if (courseQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

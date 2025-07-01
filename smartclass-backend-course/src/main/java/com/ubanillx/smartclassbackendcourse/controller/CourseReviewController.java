@@ -182,7 +182,7 @@ public class CourseReviewController {
      * @param pageSize
      * @return
      */
-    @GetMapping("/list/page")
+    @PostMapping("/list/page")
     public BaseResponse<Page<CourseReviewVO>> listReviewsByPage(
             @RequestParam("courseId") Long courseId,
             @RequestParam(defaultValue = "1") long current,

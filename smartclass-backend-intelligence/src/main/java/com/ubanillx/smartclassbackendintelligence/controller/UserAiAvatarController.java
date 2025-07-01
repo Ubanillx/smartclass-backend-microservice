@@ -166,7 +166,7 @@ public class UserAiAvatarController {
      * @param request
      * @return
      */
-    @GetMapping("/my/list")
+    @PostMapping("/my/list")
     public BaseResponse<List<UserAiAvatarVO>> listMyUserAiAvatars(HttpServletRequest request) {
         User loginUser = userService.getLoginUser(request);
         List<UserAiAvatarVO> userAiAvatarVOList = userAiAvatarService.getUserFavoriteAiAvatars(loginUser.getId());
@@ -180,8 +180,8 @@ public class UserAiAvatarController {
      * @param request
      * @return
      */
-    @GetMapping("/my/list/page")
-    public BaseResponse<Page<UserAiAvatarVO>> listMyUserAiAvatarsByPage(UserAiAvatarQueryRequest userAiAvatarQueryRequest, HttpServletRequest request) {
+    @PostMapping("/my/list/page")
+    public BaseResponse<Page<UserAiAvatarVO>> listMyUserAiAvatarsByPage(@RequestBody UserAiAvatarQueryRequest userAiAvatarQueryRequest, HttpServletRequest request) {
         if (userAiAvatarQueryRequest == null) {
             return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
@@ -267,7 +267,7 @@ public class UserAiAvatarController {
      * @param request
      * @return
      */
-    @GetMapping("/favorite/list")
+    @PostMapping("/favorite/list")
     public BaseResponse<List<UserAiAvatarVO>> listFavoriteAiAvatars(HttpServletRequest request) {
         User loginUser = userService.getLoginUser(request);
         List<UserAiAvatarVO> userAiAvatarVOList = userAiAvatarService.getUserFavoriteAiAvatars(loginUser.getId());
